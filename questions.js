@@ -1,4 +1,4 @@
-[
+module.exports = [
   {
     "id": 1,
     "question": "What is the capital of France?",

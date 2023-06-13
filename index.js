@@ -3,6 +3,7 @@ const fs = require('fs');
 const app = express();
 const port = 3000;
 const { v4: uuidv4 } = require('uuid');
+const questions = require('./questions')
 
 function generateUniqueID() {
   const uniqueID = uuidv4();
@@ -26,7 +27,6 @@ function sendSSE(res, eventName, id, data) {
 }
 
 app.get('/questions', (req, res) => {
-  let questions = JSON.parse(fs.readFileSync('questions.json', 'utf8'));
 
   res.setHeader('Content-Type', 'text/event-stream');
   res.setHeader('Cache-Control', 'no-cache');
