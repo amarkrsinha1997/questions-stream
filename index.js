@@ -13,7 +13,7 @@ function generateUniqueID() {
 // Function to pick n random elements from an array
 function getRandomQuestions(arr, n) {
   const result = [];
-  for(let i = 0; i < n; i++) {
+  for (let i = 0; i < n; i++) {
     result.push(arr.splice(Math.floor(Math.random() * arr.length), 1)[0]);
   }
   return result;
@@ -45,7 +45,7 @@ app.get('/questions', (req, res) => {
   let selectedQuestions = getRandomQuestions(questions, numQuestions);
 
   selectedQuestions.forEach((question, index) => {
-    setTimeout(() => sendSSE(res, 'question', index, {...question, id: generateUniqueID() }), index * 5000);
+    setTimeout(() => sendSSE(res, 'question', index, { ...question, id: generateUniqueID() }));
   });
 
   // End the response after all questions have been sent
