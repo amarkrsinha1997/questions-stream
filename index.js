@@ -14,7 +14,7 @@ function generateUniqueID() {
 function getRandomQuestions(arr, n) {
   const result = [];
   for (let i = 0; i < n; i++) {
-    result.push(arr.splice(Math.floor(Math.random() * arr.length), 1)[0]);
+    result.push(arr[Math.floor(Math.random() * arr.length)]);
   }
   return result;
 }
@@ -49,7 +49,7 @@ app.get('/questions', (req, res) => {
   });
 
   // End the response after all questions have been sent
-  setTimeout(() => res.end(),  10000);
+  setTimeout(() => res.end(), 10000);
 });
 
 app.listen(port, () => {
