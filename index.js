@@ -49,7 +49,7 @@ app.get('/questions', (req, res) => {
   });
 
   // End the response after all questions have been sent
-  setTimeout(() => res.end(), selectedQuestions.length * 5000);
+  setTimeout(() => res.end(),  10000);
 });
 
 app.listen(port, () => {
